@@ -1,14 +1,14 @@
 # Build
-build/
+build/*
 
 # Local configuration file (sdk path, etc)
 local.properties
 
 # AndroidStudio files
-.idea
+*.idea
 *.iml
 
 # Gradle files
-.gradle
+*.gradle
 
 

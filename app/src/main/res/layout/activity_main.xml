@@ -1,0 +1,109 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context="com.example.bogusz.eartraining.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5sp"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="120sp"
+                    android:layout_height="120sp"
+                    app:srcCompat="@drawable/logo" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_marginTop="5sp"
+                >
+
+                <fragment
+                    android:id="@+id/fragment_1"
+                    android:name="com.example.bogusz.eartraining.IkonaFragment"
+                    android:layout_width="140sp"
+                    android:layout_height="100sp"
+                    android:layout_marginRight="20sp"
+                    tools:layout="@layout/fragment_ikona" />
+
+                <fragment
+                    android:id="@+id/fragment_2"
+                    android:name="com.example.bogusz.eartraining.IkonaFragment"
+                    android:layout_width="140sp"
+                    android:layout_height="100sp"
+
+
+                    tools:layout="@layout/fragment_ikona" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_marginTop="5sp"
+                >
+
+                <fragment
+                    android:id="@+id/fragment_3"
+                    android:name="com.example.bogusz.eartraining.IkonaFragment"
+                    android:layout_width="140sp"
+                    android:layout_height="100sp"
+                    android:layout_marginRight="20sp"
+                    tools:layout="@layout/fragment_ikona" />
+
+                <fragment
+                    android:id="@+id/fragment_4"
+                    android:name="com.example.bogusz.eartraining.IkonaFragment"
+                    android:layout_width="140sp"
+                    android:layout_height="100sp"
+                    tools:layout="@layout/fragment_ikona" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_marginTop="5sp"
+                >
+
+                <fragment
+                    android:id="@+id/fragment_5"
+                    android:name="com.example.bogusz.eartraining.IkonaFragment"
+                    android:layout_width="140sp"
+                    android:layout_height="100sp"
+                    android:layout_marginRight="20sp"
+                    tools:layout="@layout/fragment_ikona" />
+
+                <fragment
+                    android:id="@+id/fragment_6"
+                    android:name="com.example.bogusz.eartraining.IkonaFragment"
+                    android:layout_width="140sp"
+                    android:layout_height="100sp"
+                    tools:layout="@layout/fragment_ikona" />
+
+            </TableRow>
+        </TableLayout>
+
+
+    </RelativeLayout>
+
+</FrameLayout>
