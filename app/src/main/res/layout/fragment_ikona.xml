@@ -15,7 +15,7 @@
             android:layout_centerHorizontal="true"
             android:text="Interwały Interwały"
             android:textColor="#fff"
-            android:textSize="15sp"
+            android:textSize="13sp"
             android:textAlignment="center"
             />
 

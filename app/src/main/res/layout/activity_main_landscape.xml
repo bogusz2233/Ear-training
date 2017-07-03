@@ -21,9 +21,9 @@
                 <ImageView
                     android:id="@+id/imageView2"
                     android:layout_column="0"
-                    android:layout_span="2"
-                    android:layout_width="200sp"
-                    android:layout_height="200sp"
+                    android:layout_span="3"
+                    android:layout_width="150sp"
+                    android:layout_height="150sp"
                     app:srcCompat="@drawable/logo" />
             </TableRow>
 
@@ -47,34 +47,18 @@
                     android:name="com.example.bogusz.eartraining.IkonaFragment"
                     android:layout_width="140sp"
                     android:layout_height="100sp"
+                    android:layout_marginRight="10sp"
                     android:layout_marginLeft="10sp"
                     tools:layout="@layout/fragment_ikona" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="5sp"
-                android:gravity="center_horizontal">
 
                 <fragment
                     android:id="@+id/fragment_3"
                     android:name="com.example.bogusz.eartraining.IkonaFragment"
                     android:layout_width="140sp"
                     android:layout_height="100sp"
-                    android:layout_column="0"
-                    android:layout_marginRight="10sp"
-                    tools:layout="@layout/fragment_ikona" />
-
-                <fragment
-                    android:id="@+id/fragment_4"
-                    android:name="com.example.bogusz.eartraining.IkonaFragment"
-                    android:layout_width="140sp"
-                    android:layout_height="100sp"
-                    android:layout_column="1"
+                    android:layout_column="2"
                     android:layout_marginLeft="10sp"
                     tools:layout="@layout/fragment_ikona" />
-
             </TableRow>
 
             <TableRow
@@ -83,13 +67,23 @@
                 android:layout_marginTop="5sp"
                 android:gravity="center_horizontal">
 
+
+
+                <fragment
+                    android:id="@+id/fragment_4"
+                    android:name="com.example.bogusz.eartraining.IkonaFragment"
+                    android:layout_width="140sp"
+                    android:layout_height="100sp"
+                    android:layout_column="0"
+                    tools:layout="@layout/fragment_ikona" />
+
                 <fragment
                     android:id="@+id/fragment_5"
                     android:name="com.example.bogusz.eartraining.IkonaFragment"
                     android:layout_width="140sp"
                     android:layout_height="100sp"
-                    android:layout_column="0"
-                    android:layout_marginRight="10sp"
+                    android:layout_column="1"
+
                     tools:layout="@layout/fragment_ikona" />
 
                 <fragment
@@ -97,11 +91,11 @@
                     android:name="com.example.bogusz.eartraining.IkonaFragment"
                     android:layout_width="140sp"
                     android:layout_height="100sp"
-                    android:layout_column="1"
-                    android:layout_marginLeft="10sp"
+                    android:layout_column="2"
                     tools:layout="@layout/fragment_ikona" />
 
             </TableRow>
+
         </TableLayout>
 
 
