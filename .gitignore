@@ -5,10 +5,10 @@ build/*
 local.properties
 
 # AndroidStudio files
-*.idea
-*.iml
+#*.idea
+#*.iml
 
 # Gradle files
-*.gradle
+#*.gradle
 
 
