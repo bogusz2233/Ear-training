@@ -1,0 +1,71 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:background="#ffffff"
+    tools:context="com.example.bogusz.eartraining.KartaZadan">
+
+
+    <TableLayout
+        android:id="@+id/tableLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="20sp"
+        android:shrinkColumns="*"
+        android:stretchColumns="*">
+
+        <TableRow android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="top">
+        <TextView
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:textColor="@color/headerColor"
+            android:id="@+id/tytulTrescZadania"
+            android:layout_width="match_parent"
+            android:layout_height="30sp"
+            android:text="TextView" />
+        </TableRow>
+
+        <TableRow android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            >
+
+            <TextView
+                android:gravity="center"
+                android:textAlignment="gravity"
+                android:textColor="@color/textColor"
+                android:id="@+id/tekstTrescZadania"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:text="@string/tekstTrescZadania" />
+            </TableRow>
+
+        <TableRow android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="bottom">
+
+
+            <Button
+
+                android:layout_marginBottom="10sp"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:id="@+id/button2"
+                android:layout_width="match_parent"
+                android:layout_height="40sp"
+                android:text="Start"
+                android:textColor="#fff"
+                android:background="@color/textColor"
+                />
+        </TableRow>
+
+    </TableLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context="com.example.bogusz.eartraining.ChooseScreen"
+    android:padding="3sp"
+    >
+
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:shrinkColumns="*"
+        android:stretchColumns="*">
+
+        <fragment
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/fragmentIkona"
+            android:name="com.example.bogusz.eartraining.IkonaFragment"
+            android:layout_width="match_parent"
+            android:layout_height="180sp"
+            android:gravity="center"
+            tools:layout="@layout/fragment_ikona" />
+        <TableRow
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:paddingBottom="20sp"
+            android:paddingTop="10sp"
+            android:gravity="center"
+            >
+
+            <android.support.constraint.ConstraintLayout
+                android:background="#fff"
+                android:layout_gravity="left|center_vertical"
+                android:layout_column="0"
+                android:layout_width="match_parent"
+                android:layout_marginTop="15sp"
+                android:layout_marginBottom="15sp"
+                >
+
+            </android.support.constraint.ConstraintLayout>
+
+            <fragment
+                        android:layout_marginRight="10sp"
+                        android:layout_marginLeft="10sp"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/fragmentMain"
+                        android:layout_column="1"
+                        android:name="com.example.bogusz.eartraining.KartaZadan"
+                        android:layout_width="250sp"
+
+                        tools:layout="@layout/fragment_karta_zadan" />
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_gravity="right|center_vertical"
+                android:background="#fff"
+                android:layout_column="2"
+                android:layout_width="match_parent"
+                android:layout_marginTop="15sp"
+                android:layout_marginBottom="15sp"
+                >
+
+            </android.support.constraint.ConstraintLayout>
+
+
+        </TableRow>
+    </TableLayout>
+
+
+</RelativeLayout>

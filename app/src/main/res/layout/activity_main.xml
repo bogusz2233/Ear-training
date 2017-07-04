@@ -7,6 +7,7 @@
     android:weightSum="1.0"
     android:background="@color/colorPrimary"
     tools:context="com.example.bogusz.eartraining.MainActivity"
+    android:padding="2sp"
     >
 
 
@@ -24,7 +25,7 @@
             android:id="@+id/imageView3"
             app:srcCompat="@drawable/logo"
             android:layout_width="match_parent"
-            android:layout_height="200sp"
+            android:layout_height="180sp"
             />
 
 
