@@ -1,23 +1,20 @@
 package com.example.bogusz.eartraining;
 
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.content.res.Configuration;
-
 
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
 
+    private float xDpi;
+    private float yDpi;
 
 
     @Override
@@ -26,6 +23,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+        xDpi = dm.xdpi;
+        yDpi = dm.ydpi;
+
+
+        ImageView glowneLogo =(ImageView) findViewById(R.id.imageView2);
+
+        // ustawienia fragmentów
         IkonaFragment[] ikonaFragments = {
                 (IkonaFragment) getFragmentManager().findFragmentById(R.id.fragment_1),
                 (IkonaFragment) getFragmentManager().findFragmentById(R.id.fragment_2),
@@ -50,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                                 @Override
                                 public void onClick(View view) {
                                     TextView textView = view.findViewById(R.id.tekstIkona);
-                                    textView.setText("klikniete");
+                                    textView.setText("x = " + xDpi + "  y = " + yDpi);
                                 }
                             });
 
@@ -61,6 +67,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void setUpFragmentow(IkonaFragment[] ikonaFragments){
         for(int i = 0; i<6; i++){
+            View view = ikonaFragments[i].getView();
+            TextView textView = ikonaFragments[i].getView().findViewById(R.id.tekstIkona);
+
+
+
             switch (i){
                 case 0:
                     ikonaFragments[i].zmianaObrazu(R.drawable.interwaly);
@@ -84,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
 
                 case 4:
                     ikonaFragments[i].zmianaObrazu(R.drawable.melodyczne);
-                    ikonaFragments[i].zmianaNapisu(R.string.dyktandaMelodyjne);
+                    ikonaFragments[i].zmianaNapisu(R.string.dyktandaMelodyczne);
                     break;
 
                 case 5:
@@ -95,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
 
 
 }

@@ -1,109 +1,99 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:weightSum="1.0"
     android:background="@color/colorPrimary"
     tools:context="com.example.bogusz.eartraining.MainActivity"
-    android:layout_gravity="center"
     >
 
-        <TableLayout
+
+
+
+
+    <TableLayout
+        android:id="@+id/tableLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:shrinkColumns="*"
+        android:stretchColumns="*">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            app:srcCompat="@drawable/logo"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_horizontal">
+            android:layout_height="200sp"
+            />
 
-            <TableRow
+
+        <TableRow android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <fragment
+                android:layout_column="0"
+                android:id="@+id/fragment_1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal">
-
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_column="0"
-                    android:layout_span="2"
-                    android:layout_width="200sp"
-                    android:layout_height="200sp"
-                    app:srcCompat="@drawable/logo" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal">
-
-                <fragment
-                    android:id="@+id/fragment_1"
-                    android:layout_column="0"
-                    android:name="com.example.bogusz.eartraining.IkonaFragment"
-                    android:layout_width="140sp"
-                    android:layout_height="100sp"
-                    android:layout_marginRight="10sp"
-                    tools:layout="@layout/fragment_ikona" />
-
-                <fragment
-                    android:id="@+id/fragment_2"
-                    android:layout_column="1"
-                    android:name="com.example.bogusz.eartraining.IkonaFragment"
-                    android:layout_width="140sp"
-                    android:layout_height="100sp"
-                    android:layout_marginLeft="10sp"
-                    tools:layout="@layout/fragment_ikona" />
-            </TableRow>
-
-            <TableRow
+                android:gravity="center"
+                android:name="com.example.bogusz.eartraining.IkonaFragment"
+                tools:layout="@layout/fragment_ikona"
+                />
+            <fragment
+                android:layout_column="1"
+                android:id="@+id/fragment_2"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="5sp"
-                android:gravity="center_horizontal">
+                android:gravity="center"
+                android:name="com.example.bogusz.eartraining.IkonaFragment"
+                tools:layout="@layout/fragment_ikona"
+                />
+        </TableRow>
 
-                <fragment
-                    android:id="@+id/fragment_3"
-                    android:name="com.example.bogusz.eartraining.IkonaFragment"
-                    android:layout_width="140sp"
-                    android:layout_height="100sp"
-                    android:layout_column="0"
-                    android:layout_marginRight="10sp"
-                    tools:layout="@layout/fragment_ikona" />
+        <TableRow android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
-                <fragment
-                    android:id="@+id/fragment_4"
-                    android:name="com.example.bogusz.eartraining.IkonaFragment"
-                    android:layout_width="140sp"
-                    android:layout_height="100sp"
-                    android:layout_column="1"
-                    android:layout_marginLeft="10sp"
-                    tools:layout="@layout/fragment_ikona" />
-
-            </TableRow>
-
-            <TableRow
+            <fragment
+                android:layout_column="0"
+                android:id="@+id/fragment_3"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="5sp"
-                android:gravity="center_horizontal">
+                android:gravity="center"
+                android:name="com.example.bogusz.eartraining.IkonaFragment"
+                tools:layout="@layout/fragment_ikona"
+                />
+            <fragment
+                android:layout_column="1"
+                android:id="@+id/fragment_4"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:name="com.example.bogusz.eartraining.IkonaFragment"
+                tools:layout="@layout/fragment_ikona"
+                />
+        </TableRow>
+        <TableRow android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
-                <fragment
-                    android:id="@+id/fragment_5"
-                    android:name="com.example.bogusz.eartraining.IkonaFragment"
-                    android:layout_width="140sp"
-                    android:layout_height="100sp"
-                    android:layout_column="0"
-                    android:layout_marginRight="10sp"
-                    tools:layout="@layout/fragment_ikona" />
-
-                <fragment
-                    android:id="@+id/fragment_6"
-                    android:name="com.example.bogusz.eartraining.IkonaFragment"
-                    android:layout_width="140sp"
-                    android:layout_height="100sp"
-                    android:layout_column="1"
-                    android:layout_marginLeft="10sp"
-                    tools:layout="@layout/fragment_ikona" />
-
-            </TableRow>
-        </TableLayout>
+            <fragment
+                android:layout_column="0"
+                android:id="@+id/fragment_5"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:name="com.example.bogusz.eartraining.IkonaFragment"
+                tools:layout="@layout/fragment_ikona"
+                />
+            <fragment
+                android:layout_column="1"
+                android:id="@+id/fragment_6"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:name="com.example.bogusz.eartraining.IkonaFragment"
+                tools:layout="@layout/fragment_ikona"
+                />
+        </TableRow>
 
 
 
+    </TableLayout>
 </RelativeLayout>

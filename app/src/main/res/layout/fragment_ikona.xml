@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.bogusz.eartraining.IkonaFragment"
     android:background="@color/colorPrimary"
+    android:padding="5sp"
     >
 
 
