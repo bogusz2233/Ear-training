@@ -22,8 +22,10 @@
         android:stretchColumns="*">
 
         <ImageView
+            android:paddingTop="5sp"
+            android:paddingBottom="20sp"
             android:id="@+id/imageView3"
-            app:srcCompat="@drawable/logo"
+            android:src="@drawable/logo"
             android:layout_width="match_parent"
             android:layout_height="180sp"
             />
@@ -34,14 +36,17 @@
             android:layout_weight="1">
 
             <fragment
+                android:transitionName ="myFragment"
                 android:layout_column="0"
                 android:id="@+id/fragment_1"
                 android:layout_width="match_parent"
                 android:gravity="center"
                 android:name="com.example.bogusz.eartraining.IkonaFragment"
                 tools:layout="@layout/fragment_ikona"
+
                 />
             <fragment
+                android:transitionName ="myFragment"
                 android:layout_column="1"
                 android:id="@+id/fragment_2"
                 android:layout_width="match_parent"
@@ -56,6 +61,7 @@
             android:layout_weight="1">
 
             <fragment
+                android:transitionName ="myFragment"
                 android:layout_column="0"
                 android:id="@+id/fragment_3"
                 android:layout_width="match_parent"
@@ -64,6 +70,7 @@
                 tools:layout="@layout/fragment_ikona"
                 />
             <fragment
+                android:transitionName ="myFragment"
                 android:layout_column="1"
                 android:id="@+id/fragment_4"
                 android:layout_width="match_parent"
@@ -77,6 +84,7 @@
             android:layout_weight="1">
 
             <fragment
+                android:transitionName ="myFragment"
                 android:layout_column="0"
                 android:id="@+id/fragment_5"
                 android:layout_width="match_parent"
@@ -85,6 +93,7 @@
                 tools:layout="@layout/fragment_ikona"
                 />
             <fragment
+                android:transitionName ="myFragment"
                 android:layout_column="1"
                 android:id="@+id/fragment_6"
                 android:layout_width="match_parent"

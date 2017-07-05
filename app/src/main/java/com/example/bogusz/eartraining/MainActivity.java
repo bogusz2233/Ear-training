@@ -3,6 +3,8 @@ package com.example.bogusz.eartraining;
 
 
 
+import android.content.Intent;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -15,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     private float xDpi;
     private float yDpi;
-
+    private static int klikniete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,19 +50,98 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void setOnClickFragmentow(IkonaFragment[] ikonaFragments){
-        for(int i = 0; i<6; i++) {
+        View[] views ={
+                ikonaFragments[0].getView(),
+                ikonaFragments[1].getView(),
+                ikonaFragments[2].getView(),
+                ikonaFragments[3].getView(),
+                ikonaFragments[4].getView(),
+                ikonaFragments[5].getView(),
+        };
 
-                    View view = ikonaFragments[i].getView();
-                    view.setOnClickListener(
-                            new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    TextView textView = view.findViewById(R.id.tekstIkona);
-                                    textView.setText("x = " + xDpi + "  y = " + yDpi);
-                                }
-                            });
+        views[0].setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(MainActivity.this, ChooseScreen.class);
+                        ActivityOptionsCompat activityOptionsCompat =
+                                ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this,findViewById(R.id.fragment_1),"myFragment");
+                        startActivity(intent, activityOptionsCompat.toBundle());
 
-        }
+                        setKlikniete(0);
+                    }
+                }
+        );
+
+        views[1].setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(MainActivity.this, ChooseScreen.class);
+                        ActivityOptionsCompat activityOptionsCompat =
+                                ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this,findViewById(R.id.fragment_2),"myFragment");
+                        startActivity(intent, activityOptionsCompat.toBundle());
+                        setKlikniete(1);
+                    }
+                }
+        );
+
+        views[2].setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(MainActivity.this, ChooseScreen.class);
+                        ActivityOptionsCompat activityOptionsCompat =
+                                ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this,findViewById(R.id.fragment_3),"myFragment");
+                        startActivity(intent, activityOptionsCompat.toBundle());
+
+                        setKlikniete(2);
+                    }
+                }
+        );
+
+        views[3].setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(MainActivity.this, ChooseScreen.class);
+
+
+                        ActivityOptionsCompat activityOptionsCompat =
+                                ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this,findViewById(R.id.fragment_4),"myFragment");
+                        startActivity(intent, activityOptionsCompat.toBundle());
+
+                        setKlikniete(3);
+                    }
+                }
+        );
+
+        views[4].setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(MainActivity.this, ChooseScreen.class);
+                        ActivityOptionsCompat activityOptionsCompat =
+                                ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this,findViewById(R.id.fragment_5),"myFragment");
+                        startActivity(intent, activityOptionsCompat.toBundle());
+
+                        setKlikniete(4);
+                    }
+                }
+        );
+
+        views[5].setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(MainActivity.this, ChooseScreen.class);
+                        ActivityOptionsCompat activityOptionsCompat =
+                                ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this,findViewById(R.id.fragment_6),"myFragment");
+                        startActivity(intent, activityOptionsCompat.toBundle());
+                        setKlikniete(5);
+                    }
+                }
+        );
 
     }
 
@@ -107,6 +188,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public static int getKlikniete() {
+        return klikniete;
+    }
 
-
+    private static void setKlikniete(int klikniete) {
+        MainActivity.klikniete = klikniete;
+    }
 }
