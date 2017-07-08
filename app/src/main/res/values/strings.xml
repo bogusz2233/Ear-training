@@ -11,6 +11,16 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
 
+    <string-array name="podpisyIkon">
+        <item>Interwały</item>
+        <item>Trójdźwięki</item>
+        <item>Akordy</item>
+        <item>Dyktanda rytmiczne</item>
+        <item>Dyktanda melodyczne</item>
+        <item>Solfeż</item>
+    </string-array>
+
+
     <string name="interwaly">Interwały</string>
     <string name="trojDzwieki">Trójdźwięki</string>
     <string name="akordy">Akordy</string>

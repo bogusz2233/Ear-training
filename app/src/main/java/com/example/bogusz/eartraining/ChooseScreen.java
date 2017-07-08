@@ -1,25 +1,44 @@
 package com.example.bogusz.eartraining;
 
+import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-/**
- * An example full-screen activity that shows and hides the system UI (i.e.
- * status bar and navigation/system bar) with user interaction.
- */
+import android.widget.LinearLayout;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
 public class ChooseScreen extends AppCompatActivity {
-    private int klikniete;
+
+    private int liczba_okien = 0;
+    private String[] tagOkno;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        int klikniete = MainActivity.getKlikniete();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_screen);
-        klikniete = MainActivity.getKlikniete();
+        MainActivity.getKlikniete();
 
         // ustawienie
-        setUpScreen();
+        setUpScreen(klikniete);
+        setUpScrollView(klikniete);
+
     }
 
-    private void setUpScreen(){
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        KartaZadan kartaZadan =(KartaZadan) getFragmentManager().findFragmentByTag(tagOkno[0]);
+        kartaZadan.zmienTytul("");
+
+    }
+
+    private void setUpScreen(int klikniete){
 
         IkonaFragment ikonaFragment = (IkonaFragment) getFragmentManager().findFragmentById(R.id.fragmentIkona);
 
@@ -58,9 +77,56 @@ public class ChooseScreen extends AppCompatActivity {
     }
 
 
+    public void setUpScrollView(int klikniete){
+        switch (klikniete){
+            case 0:
+                stworzFragmentow(3);
+                break;
 
-    @Override
-    public void finish() {
-        super.finish();
+            case 1:
+                stworzFragmentow(3);
+                break;
+
+            case 2:
+                stworzFragmentow(3);
+                break;
+
+            case 3:
+                stworzFragmentow(3);
+                break;
+
+            case 4:
+                stworzFragmentow(3);
+                break;
+
+            case 5:
+                stworzFragmentow(3);
+                break;
+        }
+
     }
+
+    public void stworzFragmentow(int liczba_fragmentow){
+
+        List<String> listaTagow = new ArrayList<String>();
+
+        LinearLayout linearLayout =(LinearLayout) findViewById(R.id.kontenerZadania);
+
+        for (int i = 0; i<liczba_fragmentow; i++ ){
+            liczba_okien++;
+
+            listaTagow.add("oknoZadan" + liczba_okien);
+            KartaZadan kartaZadan = new KartaZadan();
+
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.add(linearLayout.getId(),kartaZadan,listaTagow.get(i));
+
+            ft.commit();
+        }
+
+        tagOkno = new String[listaTagow.size()];
+        listaTagow.toArray(tagOkno);
+    }
+
+
 }
