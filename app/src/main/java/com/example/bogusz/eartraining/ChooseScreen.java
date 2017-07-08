@@ -1,9 +1,14 @@
 package com.example.bogusz.eartraining;
 
 import android.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import android.util.DisplayMetrics;
+import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
@@ -33,8 +38,9 @@ public class ChooseScreen extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        KartaZadan kartaZadan =(KartaZadan) getFragmentManager().findFragmentByTag(tagOkno[0]);
-        kartaZadan.zmienTytul("");
+        setFragmentSize();
+
+
 
     }
 
@@ -108,11 +114,15 @@ public class ChooseScreen extends AppCompatActivity {
 
     public void stworzFragmentow(int liczba_fragmentow){
 
+        //lista potrzebna do stworzenia tagów do fragmentów
+
         List<String> listaTagow = new ArrayList<String>();
 
         LinearLayout linearLayout =(LinearLayout) findViewById(R.id.kontenerZadania);
 
         for (int i = 0; i<liczba_fragmentow; i++ ){
+
+
             liczba_okien++;
 
             listaTagow.add("oknoZadan" + liczba_okien);
@@ -122,10 +132,42 @@ public class ChooseScreen extends AppCompatActivity {
             ft.add(linearLayout.getId(),kartaZadan,listaTagow.get(i));
 
             ft.commit();
+
+
         }
 
+        // konwertuje liste do stringów żeby później móc się odnosić do konkretnego fragmentu
         tagOkno = new String[listaTagow.size()];
         listaTagow.toArray(tagOkno);
+    }
+
+    private void setFragmentSize(){
+
+        // ta funckcja dopasowuje fragmenty do ekranu
+
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) getFragmentManager().
+                findFragmentByTag(tagOkno[0]).getView().getLayoutParams();
+
+        params.width =(int) (metrics.widthPixels * 0.8);
+
+        int prawy = (int) (metrics.widthPixels * 0.03);
+        int lewy = (int) (metrics.widthPixels * 0.1);
+        params.setMargins(lewy,params.topMargin,prawy,params.bottomMargin);
+
+        for (int i = 1; i<tagOkno.length; i++){
+            LinearLayout.LayoutParams params2 = (LinearLayout.LayoutParams) getFragmentManager().
+                    findFragmentByTag(tagOkno[i]).getView().getLayoutParams();
+
+            int verticalMargin = (int) (metrics.widthPixels * 0.03);
+
+            params2.width =(int) (metrics.widthPixels * 0.8);
+            params2.setMargins(verticalMargin,params2.topMargin,verticalMargin,params2.bottomMargin);
+
+        }
+
     }
 
 
