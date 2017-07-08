@@ -18,9 +18,10 @@
         android:id="@+id/tableLayout1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="20sp"
         android:shrinkColumns="*"
-        android:stretchColumns="*">
+        android:stretchColumns="*"
+        android:padding="15dp"
+        >
 
         <TableRow android:layout_width="fill_parent"
             android:layout_height="0dp"
@@ -32,7 +33,7 @@
             android:textColor="@color/headerColor"
             android:id="@+id/tytulTrescZadania"
             android:layout_width="match_parent"
-            android:layout_height="30sp"
+            android:layout_height="wrap_content"
             android:text="TextView" />
         </TableRow>
 
@@ -42,6 +43,8 @@
             >
 
             <TextView
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:gravity="center"
                 android:textAlignment="gravity"
                 android:textColor="@color/textColor"
@@ -60,12 +63,11 @@
 
             <Button
 
-                android:layout_marginBottom="10sp"
-                android:layout_marginLeft="10sp"
-                android:layout_marginRight="10sp"
+                android:layout_marginBottom="10dp"
+
                 android:id="@+id/button2"
                 android:layout_width="match_parent"
-                android:layout_height="40sp"
+                android:layout_height="40dp"
                 android:text="Start"
                 android:textColor="#fff"
                 android:background="@color/textColor"

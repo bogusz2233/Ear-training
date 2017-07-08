@@ -5,8 +5,8 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     tools:context="com.example.bogusz.eartraining.ChooseScreen"
-    android:paddingTop="3sp"
-    android:paddingBottom="3sp"
+    android:paddingTop="3dp"
+    android:paddingBottom="3dp"
     >
 
 

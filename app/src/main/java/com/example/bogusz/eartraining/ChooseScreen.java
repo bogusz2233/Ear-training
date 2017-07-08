@@ -27,7 +27,7 @@ public class ChooseScreen extends AppCompatActivity {
         setContentView(R.layout.activity_choose_screen);
         MainActivity.getKlikniete();
 
-        // ustawienie
+        // ustawienie podstawowe, stworzenie kart zadań
         setUpScreen(klikniete);
         setUpScrollView(klikniete);
 
@@ -83,7 +83,7 @@ public class ChooseScreen extends AppCompatActivity {
     }
 
 
-    public void setUpScrollView(int klikniete){
+    private void setUpScrollView(int klikniete){
         switch (klikniete){
             case 0:
                 stworzFragmentow(3);
@@ -112,7 +112,7 @@ public class ChooseScreen extends AppCompatActivity {
 
     }
 
-    public void stworzFragmentow(int liczba_fragmentow){
+    private void stworzFragmentow(int liczba_fragmentow){
 
         //lista potrzebna do stworzenia tagów do fragmentów
 
@@ -157,6 +157,8 @@ public class ChooseScreen extends AppCompatActivity {
         int lewy = (int) (metrics.widthPixels * 0.1);
         params.setMargins(lewy,params.topMargin,prawy,params.bottomMargin);
 
+        // dopasowanie pozostały kart
+
         for (int i = 1; i<tagOkno.length; i++){
             LinearLayout.LayoutParams params2 = (LinearLayout.LayoutParams) getFragmentManager().
                     findFragmentByTag(tagOkno[i]).getView().getLayoutParams();
@@ -164,8 +166,11 @@ public class ChooseScreen extends AppCompatActivity {
             int verticalMargin = (int) (metrics.widthPixels * 0.03);
 
             params2.width =(int) (metrics.widthPixels * 0.8);
-            params2.setMargins(verticalMargin,params2.topMargin,verticalMargin,params2.bottomMargin);
-
+            if(i == (tagOkno.length - 1) ) {
+                params2.setMargins(verticalMargin, params2.topMargin,  (int) (metrics.widthPixels * 0.1), params2.bottomMargin);
+            }else{
+                params2.setMargins(verticalMargin, params2.topMargin, verticalMargin, params2.bottomMargin);
+            }
         }
 
     }

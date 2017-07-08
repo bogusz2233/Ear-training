@@ -1,5 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -7,7 +7,8 @@
     android:weightSum="1.0"
     android:background="@color/colorPrimary"
     tools:context="com.example.bogusz.eartraining.MainActivity"
-    android:padding="2sp"
+    android:padding="3dp"
+
     >
 
 
@@ -15,6 +16,7 @@
 
 
     <TableLayout
+
         android:id="@+id/tableLayout1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -22,12 +24,12 @@
         android:stretchColumns="*">
 
         <ImageView
-            android:paddingTop="5sp"
-            android:paddingBottom="20sp"
+            android:paddingTop="5dp"
+            android:paddingBottom="20dp"
             android:id="@+id/imageView3"
             android:src="@drawable/logo"
             android:layout_width="match_parent"
-            android:layout_height="180sp"
+            android:layout_height="180dp"
             />
 
 
