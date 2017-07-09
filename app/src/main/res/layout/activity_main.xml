@@ -8,6 +8,7 @@
     android:background="@color/colorPrimary"
     tools:context="com.example.bogusz.eartraining.MainActivity"
     android:padding="3dp"
+    android:id="@+id/mainActivityId"
 
     >
 
@@ -25,11 +26,11 @@
 
         <ImageView
             android:paddingTop="5dp"
-            android:paddingBottom="20dp"
+            android:paddingBottom="10dp"
             android:id="@+id/imageView3"
             android:src="@drawable/logo"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="175dp"
             />
 
 

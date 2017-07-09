@@ -23,7 +23,7 @@
             android:id="@+id/fragmentIkona"
             android:name="com.example.bogusz.eartraining.IkonaFragment"
             android:layout_width="match_parent"
-            android:layout_height="180sp"
+            android:layout_height="190dp"
             android:gravity="center"
             tools:layout="@layout/fragment_ikona" />
 

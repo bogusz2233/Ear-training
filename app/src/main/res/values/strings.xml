@@ -20,14 +20,6 @@
         <item>Solfeż</item>
     </string-array>
 
-
-    <string name="interwaly">Interwały</string>
-    <string name="trojDzwieki">Trójdźwięki</string>
-    <string name="akordy">Akordy</string>
-    <string name="dyktandaRytmiczne">Dyktanda rytmiczne</string>
-    <string name="dyktandaMelodyczne">Dyktanda melodyczne</string>
-    <string name="solfez">Solfeż</string>
-
     <string name="title_activity_choose_screen">ChooseScreen</string>
 
 </resources>
