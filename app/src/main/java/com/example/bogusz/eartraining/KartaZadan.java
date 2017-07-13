@@ -12,12 +12,16 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
 public class KartaZadan extends Fragment {
-    private int spWidth;
+
+    //GUI
+
+    private Button kartaZadanButton;
 
 
     @Nullable
@@ -28,10 +32,20 @@ public class KartaZadan extends Fragment {
         return inflater.inflate(R.layout.fragment_karta_zadan, container,false);
     }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        kartaZadanButton = getView().findViewById(R.id.kartaZadanButton);
+    }
 
     public void zmienTytul(String trescTytul){
 
         TextView tytul = (TextView) getView().findViewById(R.id.tytulTrescZadania);
         tytul.setText(trescTytul);
+    }
+
+    public Button getKartaZadanButton() {
+        return kartaZadanButton;
     }
 }

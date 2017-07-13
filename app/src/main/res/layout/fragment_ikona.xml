@@ -21,7 +21,7 @@
             />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imageIkona"
             android:layout_above="@id/tekstIkona"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

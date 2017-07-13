@@ -1,14 +1,14 @@
 package com.example.bogusz.eartraining;
 
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import android.transition.Explode;
-import android.transition.Transition;
-import android.transition.TransitionInflater;
 import android.util.DisplayMetrics;
 
+import android.util.Log;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
@@ -17,21 +17,39 @@ import java.util.List;
 
 public class ChooseScreen extends AppCompatActivity {
 
-    Constants.TransitionType type;                          // typ do określenia rodzaju animacji
-
+    //logic values
     private int liczba_okien = 0;                           //zlicza liczbe stworzonych fragmentów
-    private String[] tagOkno;                               //przechowuje tagi do określenia fragmentów
+    private int klikniete;
+    private String[] podpisIkony;
+    private DisplayMetrics daneEkran;
+    private String tagLog = "logAplikacji";
+
+
+    //GUI of ChoosenScreen
+    private IkonaFragment ikonaFragment;
+    private LinearLayout kontenerZadania;
+    private LinearLayout.LayoutParams parametKarty;
+    private KartaZadan[] kartaZadan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        int klikniete = MainActivity.getKlikniete();
+
+        Log.i(tagLog,"onCreate ChooseScreen");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_screen);
-        MainActivity.getKlikniete();
 
-        // ustawienie podstawowe, stworzenie kart zadań
-        setUpScreen(klikniete);
-        setUpScrollView(klikniete);
+        //iniatial object
+        ikonaFragment = (IkonaFragment) getFragmentManager().findFragmentById(R.id.fragmentIkona);
+        podpisIkony = getResources().getStringArray(R.array.podpisyIkon);
+        kontenerZadania = (LinearLayout) findViewById(R.id.kontenerZadania);
+
+        //download value of clicked window
+        klikniete = MainActivity.getKlikniete();
+
+        // first setup of activity, creating quest cards
+
+        setUpScrollView();
         // For overlap between Exiting  MainActivity.java and Entering TransitionActivity.java
         getWindow().setAllowEnterTransitionOverlap(false);
     }
@@ -39,17 +57,40 @@ public class ChooseScreen extends AppCompatActivity {
 
     @Override
     protected void onStart() {
+        Log.i(tagLog,"onStart ChooseScreen");
         super.onStart();
+        setUpScreen();
         setFragmentSize();
-
+        setWordsWindows();
+        setOnKartaZadanButton();
     }
 
-    private void setUpScreen(int klikniete) {
+
+
+
+    @Override
+    protected void onResume() {
+        Log.i(tagLog,"onResume ChooseScreen");
+        super.onResume();
+    }
+
+
+    @Override
+    protected void onStop() {
+        Log.i(tagLog,"onStop ChooseScreen");
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        Log.i(tagLog,"onDestroy ChooseScreen");
+        super.onDestroy();
+    }
+
+
+
+    private void setUpScreen() {
         //wczytanie odpowiedniej grafiki i tekstu do fragmentu w górnej części ekranu
-
-        IkonaFragment ikonaFragment = (IkonaFragment) getFragmentManager().findFragmentById(R.id.fragmentIkona);
-        String[] podpisIkony = getResources().getStringArray(R.array.podpisyIkon);
-
 
         ikonaFragment.zmianaNapisu(podpisIkony[klikniete]);
 
@@ -82,11 +123,11 @@ public class ChooseScreen extends AppCompatActivity {
     }
 
 
-    private void setUpScrollView(int klikniete) {
+    private void setUpScrollView() {
         //stworzenie odpowiedniej liczby kart zadań
         switch (klikniete) {
             case 0:
-                stworzFragmentow(3);
+                stworzFragmentow(1);
                 break;
 
             case 1:
@@ -114,73 +155,72 @@ public class ChooseScreen extends AppCompatActivity {
 
     private void stworzFragmentow(int liczba_fragmentow) {
 
-        //lista potrzebna do stworzenia tagów do fragmentów
-        // po tych tagach później bedzie możliwość odwonania sie do konkretnego elementu
+        Log.i(tagLog,"stworzFragmentow początek ChooseScreen");
 
-        List<String> listaTagow = new ArrayList<String>();
-
-        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.kontenerZadania);
+        // stworzenie tymczasowej listy żeby móc stworzyć określoną liczbe fragmentów
+        List<KartaZadan> listaKartZadan = new ArrayList<KartaZadan>();
 
         for (int i = 0; i < liczba_fragmentow; i++) {
-
-
-            liczba_okien++;
-
-            listaTagow.add("oknoZadan" + liczba_okien);
-            KartaZadan kartaZadan = new KartaZadan();
-
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.add(linearLayout.getId(), kartaZadan, listaTagow.get(i));
-
-            ft.commit();
-
+            listaKartZadan.add(new KartaZadan());
 
         }
 
-        // konwertuje liste do stringów żeby później móc się odnosić do konkretnego fragmentu
-        tagOkno = new String[listaTagow.size()];
-        listaTagow.toArray(tagOkno);
+        // przepisanie listy
+        kartaZadan = listaKartZadan.toArray(new KartaZadan[listaKartZadan.size()]).clone();
+
+
+        Log.i(tagLog,"stworzFragmentow po przepisaniu tablicy ChooseScreen");
+
+        for (int i = 0; i < kartaZadan.length; i++) {
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.add(kontenerZadania.getId(), kartaZadan[i]);
+            ft.commit();
+        }
+
+        Log.i(tagLog,"stworzFragmentow po stworzeniu ChooseScreen");
+
+
+
     }
 
     private void setFragmentSize() {
 
         // ta funckcja dopasowuje fragmenty do ekranu danego telefonu
 
-        DisplayMetrics metrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        daneEkran = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(daneEkran);
 
 
         // dopasowanie pozostały kart
 
-        for (int i = 0; i < tagOkno.length; i++) {
+        for (int i = 0; i < kartaZadan.length; i++) {
 
-            int normalnyMargines = (int) (metrics.widthPixels * 0.03);
-            int wiekszyMargines = (int) (metrics.widthPixels * 0.1);
+            int normalnyMargines = (int) (daneEkran.widthPixels * 0.03);
+            int wiekszyMargines = (int) (daneEkran.widthPixels * 0.1);
 
 
-            LinearLayout.LayoutParams paramKarty = (LinearLayout.LayoutParams) getFragmentManager().
-                    findFragmentByTag(tagOkno[i]).getView().getLayoutParams();
+            parametKarty = (LinearLayout.LayoutParams) kartaZadan[i].getView().getLayoutParams();
 
 
             //ustawienie szerokości karty
-            paramKarty.width = (int) (metrics.widthPixels * 0.8);
+            parametKarty.width = (int) (daneEkran.widthPixels * 0.8);
 
             //ustawienie poszczególnych akapitów
 
             if (i == 0) {
 
                 // ustawienie dla pierwszej karty zadań
-                paramKarty.setMargins(wiekszyMargines, paramKarty.topMargin, normalnyMargines, paramKarty.bottomMargin);
+                parametKarty.setMargins(wiekszyMargines, parametKarty.topMargin, normalnyMargines, parametKarty.bottomMargin);
 
-            } else if (i == (tagOkno.length - 1)) {
+            } else if (i == (kartaZadan.length - 1)) {
 
                 //ustawienia dla ostatniej karty zadań
-                paramKarty.setMargins(normalnyMargines, paramKarty.topMargin, wiekszyMargines, paramKarty.bottomMargin);
+                parametKarty.setMargins(normalnyMargines, parametKarty.topMargin, wiekszyMargines, parametKarty.bottomMargin);
 
             } else {
 
                 //ustawienia marginesów dla kart w środku
-                paramKarty.setMargins(normalnyMargines, paramKarty.topMargin, normalnyMargines, paramKarty.bottomMargin);
+                parametKarty.setMargins(normalnyMargines, parametKarty.topMargin, normalnyMargines, parametKarty.bottomMargin);
 
             }
 
@@ -189,6 +229,60 @@ public class ChooseScreen extends AppCompatActivity {
 
 
     }
+
+    private void setWordsWindows(){
+        // funkcja wypelnia teksty kart
+
+        if(klikniete == 0){
+            kartaZadan[0].zmienTytul("Cwiczenia Interwały");
+        }
+
+    }
+
+    private void setOnKartaZadanButton(){
+
+        switch (klikniete){
+            case 0:
+                initCwiczInterwal();
+                break;
+
+            case 1:
+                // for 1 activity action onClick
+                break;
+
+            case 2:
+                // for 2 activity action onClick
+                break;
+
+            case 3:
+                // for 3 activity action onClick
+                break;
+
+            case 4:
+                // for 4 activity action onClick
+                break;
+
+            case 5:
+                // for 5 activity action onClick
+                break;
+
+
+        }
+
+    }
+
+    private void initCwiczInterwal(){
+            kartaZadan[0].getKartaZadanButton().setOnClickListener(
+                    new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(ChooseScreen.this, InterwalyCwiczenie.class);
+                            startActivity(intent);
+                        }
+                    }
+            );
+    }
+
 
 
 }

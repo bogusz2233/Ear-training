@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+        xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        tools:context="com.example.bogusz.eartraining.InterwalyCwiczenie"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp">
+
+
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:shrinkColumns="*"
+            android:stretchColumns="*">
+
+            <fragment
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/ikonaFragmentInterwaly"
+                android:name="com.example.bogusz.eartraining.IkonaFragment"
+                android:layout_width="match_parent"
+                android:layout_height="190dp"
+                android:gravity="center"
+                tools:layout="@layout/fragment_ikona" />
+
+
+            <TableRow
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ProgressBar
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:id="@+id/progressBarInterwaly"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:max="100"
+                    android:padding="5dp"
+                    android:progress="15" />
+
+            </TableRow>
+
+            <TableRow
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/buttonPlay"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:padding="5dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="PLAY"
+                    android:textSize="34sp"
+
+                    />
+
+            </TableRow>
+
+
+
+
+        </TableLayout>
+
+
+
+
+</RelativeLayout>

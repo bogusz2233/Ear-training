@@ -1,37 +1,35 @@
 package com.example.bogusz.eartraining;
 
 
-import android.app.ActivityOptions;
 import android.content.Intent;
-import android.support.annotation.TransitionRes;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.transition.Transition;
-import android.transition.TransitionInflater;
-import android.transition.TransitionListenerAdapter;
-import android.transition.TransitionManager;
-import android.transition.TransitionSet;
+
+import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+
 
 
 public class MainActivity extends AppCompatActivity {
 
-
+    //logic value
     private static int klikniete;
+    private String[] podpisyIkon;
+    private String tagLog = "logAplikacji";
+
+    //GUI - MainActivity
+    private IkonaFragment[] ikonaFragments;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        Log.i(tagLog,"onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // ustawienia fragmentów
-        IkonaFragment[] ikonaFragments = {
+        // initial fragments
+        ikonaFragments = new IkonaFragment[]{
                 (IkonaFragment) getFragmentManager().findFragmentById(R.id.fragment_1),
                 (IkonaFragment) getFragmentManager().findFragmentById(R.id.fragment_2),
                 (IkonaFragment) getFragmentManager().findFragmentById(R.id.fragment_3),
@@ -40,13 +38,21 @@ public class MainActivity extends AppCompatActivity {
                 (IkonaFragment) getFragmentManager().findFragmentById(R.id.fragment_6)
 
         };
-
-        setUpFragmentow(ikonaFragments);
-        setOnClickFragmentow(ikonaFragments);
     }
 
 
-    private void setOnClickFragmentow(IkonaFragment[] ikonaFragments){
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        Log.i(tagLog,"onStart");
+        setUpFragmentow();
+        setOnClickFragmentow();
+    }
+
+    private void setOnClickFragmentow(){
+
+        Log.i(tagLog,"setOnClickFragmentow");
         // ustala w jaki sposób zachowa się aplikacja po wcisnieciu danego fragmentu
 
        for(int i =0; i <ikonaFragments.length; i++){
@@ -54,15 +60,29 @@ public class MainActivity extends AppCompatActivity {
            view.setOnClickListener(ustawKlikniecie(i));
        }
 
+        Log.i(tagLog,"before setup fragments");
+
     }
 
 
-    private void setUpFragmentow(IkonaFragment[] ikonaFragments){
+    private void setUpFragmentow(){
 
-        String[] podpisyIkon = getResources().getStringArray(R.array.podpisyIkon);
+        Log.i(tagLog,"setUpFragmentow");
 
+        // download from res value of string
+        podpisyIkon = getResources().getStringArray(R.array.podpisyIkon);
+
+
+        Log.i(tagLog,"before setup podpisyIkon");
+
+        // setUp image of fragments
         for(int i =0; i<ikonaFragments.length; i++){
+
+            Log.i(tagLog,"pętla for iteracja: " + i);
+
             ikonaFragments[i].zmianaNapisu(podpisyIkon[i]);
+
+            Log.i(tagLog,"after zmianNapisu");
 
             switch (i){
                 case 0:
@@ -91,6 +111,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+        Log.i(tagLog,"before setup ikony fragments");
+
     }
 
     private View.OnClickListener  ustawKlikniecie(final int numerPrzycisku){
@@ -99,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ChooseScreen.class);
                 ActivityOptionsCompat activityOptionsCompat =
-                        ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this,findViewById(R.id.fragment_6),"myFragment");
+                        ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this,ikonaFragments[numerPrzycisku].getView(),"myFragment");
                 startActivity(intent, activityOptionsCompat.toBundle());
                 setKlikniete(numerPrzycisku);
             }
