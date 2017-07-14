@@ -1,8 +1,8 @@
 package com.example.bogusz.eartraining;
 
 import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -10,13 +10,13 @@ import android.widget.ProgressBar;
 import java.util.Timer;
 import java.util.TimerTask;
 
-
-public class InterwalyCwiczenie extends AppCompatActivity {
+public class InterwalyCwiczenie extends AppCompatActivity{
 
     //GUI
     ProgressBar progressBarInterwaly;
     IkonaFragment ikonaFragmentInterwaly;
     Button  buttonPlay;
+
 
     //logic
     private MediaPlayer plikMuzyczny;           // klasa do otwierania muzyki
@@ -49,6 +49,20 @@ public class InterwalyCwiczenie extends AppCompatActivity {
         setUpView();
         setUpButtonPlay();
         syncTimerSetUp();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+
     }
 
     @Override
@@ -132,4 +146,6 @@ public class InterwalyCwiczenie extends AppCompatActivity {
         plikMuzyczny = null;
         timerSync.cancel();
     }
+
+
 }

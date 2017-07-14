@@ -1,8 +1,9 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@color/colorPrimary"
     tools:context="com.example.bogusz.eartraining.ChooseScreen"
     android:paddingTop="3dp"
@@ -10,31 +11,24 @@
     >
 
 
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:shrinkColumns="*"
-        android:stretchColumns="*">
-
         <fragment
             android:transitionName ="myFragment"
-            android:layout_gravity="center_horizontal"
+            android:layout_weight="6"
             android:id="@+id/fragmentIkona"
             android:name="com.example.bogusz.eartraining.IkonaFragment"
             android:layout_width="match_parent"
-            android:layout_height="190dp"
+            android:layout_height="0dp"
             android:gravity="center"
             tools:layout="@layout/fragment_ikona" />
 
 
             <HorizontalScrollView
+                android:layout_weight="13"
                 android:scrollbars="none"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent">
+                android:layout_height="0dp">
 
                 <LinearLayout
-
                     android:id="@+id/kontenerZadania"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -43,9 +37,4 @@
                 </LinearLayout>
             </HorizontalScrollView>
 
-
-
-    </TableLayout>
-
-
-</RelativeLayout>
+</LinearLayout>

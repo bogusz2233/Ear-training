@@ -1,10 +1,9 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="1.0"
     android:background="@color/colorPrimary"
     tools:context="com.example.bogusz.eartraining.MainActivity"
     android:padding="3dp"
@@ -13,25 +12,25 @@
     >
 
 
-
-
+    <ImageView
+        android:layout_span="2"
+        android:paddingTop="5dp"
+        android:paddingBottom="10dp"
+        android:id="@+id/imageView3"
+        android:src="@drawable/logo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="10"
+        />
 
     <TableLayout
-
+        android:layout_weight="4"
         android:id="@+id/tableLayout1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:shrinkColumns="*"
         android:stretchColumns="*">
 
-        <ImageView
-            android:paddingTop="5dp"
-            android:paddingBottom="10dp"
-            android:id="@+id/imageView3"
-            android:src="@drawable/logo"
-            android:layout_width="match_parent"
-            android:layout_height="175dp"
-            />
 
 
         <TableRow android:layout_width="fill_parent"
@@ -109,4 +108,4 @@
 
 
     </TableLayout>
-</RelativeLayout>
+</LinearLayout>
