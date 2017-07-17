@@ -12,37 +12,35 @@
     >
 
 
+
     <ImageView
-        android:layout_span="2"
+        android:layout_gravity="top"
         android:paddingTop="5dp"
         android:paddingBottom="10dp"
         android:id="@+id/imageView3"
         android:src="@drawable/logo"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="10"
+        android:layout_weight="14"
+        android:layout_height="0dp"
         />
-
     <TableLayout
-        android:layout_weight="4"
         android:id="@+id/tableLayout1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:shrinkColumns="*"
-        android:stretchColumns="*">
-
-
-
-        <TableRow android:layout_width="fill_parent"
+        android:layout_weight="30"
+        android:layout_height="0dp"
+        >
+        <TableRow android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="10"
+            android:gravity="center_horizontal">
 
             <fragment
                 android:transitionName ="myFragment"
                 android:layout_column="0"
                 android:id="@+id/fragment_1"
-                android:layout_width="match_parent"
-                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
                 android:name="com.example.bogusz.eartraining.IkonaFragment"
                 tools:layout="@layout/fragment_ikona"
 
@@ -51,23 +49,26 @@
                 android:transitionName ="myFragment"
                 android:layout_column="1"
                 android:id="@+id/fragment_2"
-                android:layout_width="match_parent"
-                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:name="com.example.bogusz.eartraining.IkonaFragment"
                 tools:layout="@layout/fragment_ikona"
                 />
         </TableRow>
 
-        <TableRow android:layout_width="fill_parent"
+        <TableRow  android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="10"
+            android:gravity="center_horizontal">
 
             <fragment
                 android:transitionName ="myFragment"
                 android:layout_column="0"
                 android:id="@+id/fragment_3"
-                android:layout_width="match_parent"
-                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
                 android:name="com.example.bogusz.eartraining.IkonaFragment"
                 tools:layout="@layout/fragment_ikona"
                 />
@@ -75,22 +76,27 @@
                 android:transitionName ="myFragment"
                 android:layout_column="1"
                 android:id="@+id/fragment_4"
-                android:layout_width="match_parent"
-                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
                 android:name="com.example.bogusz.eartraining.IkonaFragment"
                 tools:layout="@layout/fragment_ikona"
                 />
         </TableRow>
-        <TableRow android:layout_width="fill_parent"
+
+        <TableRow  android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="10"
+            android:gravity="center_horizontal"
+                    >
 
             <fragment
                 android:transitionName ="myFragment"
                 android:layout_column="0"
                 android:id="@+id/fragment_5"
-                android:layout_width="match_parent"
-                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
                 android:name="com.example.bogusz.eartraining.IkonaFragment"
                 tools:layout="@layout/fragment_ikona"
                 />
@@ -98,13 +104,13 @@
                 android:transitionName ="myFragment"
                 android:layout_column="1"
                 android:id="@+id/fragment_6"
-                android:layout_width="match_parent"
-                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
                 android:name="com.example.bogusz.eartraining.IkonaFragment"
                 tools:layout="@layout/fragment_ikona"
                 />
         </TableRow>
-
 
 
     </TableLayout>

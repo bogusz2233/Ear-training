@@ -17,6 +17,8 @@ import java.util.List;
 
 public class ChooseScreen extends AppCompatActivity {
 
+
+    public static String EXTRA_FRAGMENT = "fragment";
     //logic values
     private int liczba_okien = 0;                           //zlicza liczbe stworzonych fragmentów
     private int klikniete;
@@ -34,7 +36,7 @@ public class ChooseScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        Log.i(tagLog,"onCreate ChooseScreen");
+        Log.i(tagLog, "onCreate ChooseScreen");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_screen);
@@ -57,7 +59,7 @@ public class ChooseScreen extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-        Log.i(tagLog,"onStart ChooseScreen");
+        Log.i(tagLog, "onStart ChooseScreen");
         super.onStart();
         setUpScreen();
         setFragmentSize();
@@ -66,27 +68,24 @@ public class ChooseScreen extends AppCompatActivity {
     }
 
 
-
-
     @Override
     protected void onResume() {
-        Log.i(tagLog,"onResume ChooseScreen");
+        Log.i(tagLog, "onResume ChooseScreen");
         super.onResume();
     }
 
 
     @Override
     protected void onStop() {
-        Log.i(tagLog,"onStop ChooseScreen");
+        Log.i(tagLog, "onStop ChooseScreen");
         super.onStop();
     }
 
     @Override
     protected void onDestroy() {
-        Log.i(tagLog,"onDestroy ChooseScreen");
+        Log.i(tagLog, "onDestroy ChooseScreen");
         super.onDestroy();
     }
-
 
 
     private void setUpScreen() {
@@ -155,7 +154,7 @@ public class ChooseScreen extends AppCompatActivity {
 
     private void stworzFragmentow(int liczba_fragmentow) {
 
-        Log.i(tagLog,"stworzFragmentow początek ChooseScreen");
+        Log.i(tagLog, "stworzFragmentow początek ChooseScreen");
 
         // stworzenie tymczasowej listy żeby móc stworzyć określoną liczbe fragmentów
         List<KartaZadan> listaKartZadan = new ArrayList<KartaZadan>();
@@ -169,7 +168,7 @@ public class ChooseScreen extends AppCompatActivity {
         kartaZadan = listaKartZadan.toArray(new KartaZadan[listaKartZadan.size()]).clone();
 
 
-        Log.i(tagLog,"stworzFragmentow po przepisaniu tablicy ChooseScreen");
+        Log.i(tagLog, "stworzFragmentow po przepisaniu tablicy ChooseScreen");
 
         for (int i = 0; i < kartaZadan.length; i++) {
             FragmentTransaction ft = getFragmentManager().beginTransaction();
@@ -177,8 +176,7 @@ public class ChooseScreen extends AppCompatActivity {
             ft.commit();
         }
 
-        Log.i(tagLog,"stworzFragmentow po stworzeniu ChooseScreen");
-
+        Log.i(tagLog, "stworzFragmentow po stworzeniu ChooseScreen");
 
 
     }
@@ -230,18 +228,18 @@ public class ChooseScreen extends AppCompatActivity {
 
     }
 
-    private void setWordsWindows(){
+    private void setWordsWindows() {
         // funkcja wypelnia teksty kart
 
-        if(klikniete == 0){
+        if (klikniete == 0) {
             kartaZadan[0].zmienTytul("Cwiczenia Interwały");
         }
 
     }
 
-    private void setOnKartaZadanButton(){
+    private void setOnKartaZadanButton() {
 
-        switch (klikniete){
+        switch (klikniete) {
             case 0:
                 initCwiczInterwal();
                 break;
@@ -271,18 +269,17 @@ public class ChooseScreen extends AppCompatActivity {
 
     }
 
-    private void initCwiczInterwal(){
-            kartaZadan[0].getKartaZadanButton().setOnClickListener(
-                    new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            Intent intent = new Intent(ChooseScreen.this, InterwalyCwiczenie.class);
-                            startActivity(intent);
-                        }
+    private void initCwiczInterwal() {
+        kartaZadan[0].getKartaZadanButton().setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(ChooseScreen.this, InterwalyCwiczenie.class);
+                        startActivity(intent);
                     }
-            );
+                }
+        );
     }
-
 
 
 }

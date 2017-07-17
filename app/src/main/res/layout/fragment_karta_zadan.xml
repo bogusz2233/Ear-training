@@ -1,79 +1,55 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="fill_parent"
-    android:gravity="center"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
     android:background="#ffffff"
     tools:context="com.example.bogusz.eartraining.KartaZadan"
-
-    android:layout_width="match_parent"
-
-    android:layout_marginLeft="10sp"
-    android:layout_marginRight="10sp"
-    android:layout_marginTop="20sp"
-    android:layout_marginBottom="20sp"
+    android:layout_marginTop="15dp"
+    android:layout_marginBottom="15dp"
     >
 
 
-    <TableLayout
-        android:id="@+id/tableLayout1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:shrinkColumns="*"
-        android:stretchColumns="*"
-        android:padding="15dp"
-        >
-
-        <TableRow android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_gravity="top">
         <TextView
-            android:textSize="18sp"
-            android:textAlignment="center"
+
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textAlignment="gravity"
             android:textColor="@color/headerColor"
             android:id="@+id/tytulTrescZadania"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
-        </TableRow>
-
-        <TableRow android:layout_width="fill_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            >
+            android:layout_weight="2"
+            android:textSize="20sp"
+            android:text="TextView" />
+
 
             <TextView
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:gravity="center"
+                android:layout_gravity="center"
                 android:textAlignment="gravity"
                 android:textColor="@color/textColor"
                 android:id="@+id/tekstTrescZadania"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-
+                android:layout_height="0dp"
+                android:layout_weight="15"
+                android:textSize="14sp"
                 android:text="@string/tekstTrescZadania" />
-            </TableRow>
-
-        <TableRow android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="bottom">
-
 
             <Button
-
+                android:layout_gravity="bottom"
                 android:layout_marginBottom="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
                 android:id="@+id/kartaZadanButton"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:textSize="20sp"
                 android:text="Start"
                 android:textColor="#fff"
                 android:background="@color/textColor"
                 />
-        </TableRow>
-
-    </TableLayout>
-
-
-</RelativeLayout>
+</LinearLayout>

@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
     android:background="@color/colorPrimary"
     tools:context="com.example.bogusz.eartraining.ChooseScreen"
     android:paddingTop="3dp"
@@ -11,27 +12,28 @@
     >
 
 
+
         <fragment
-            android:transitionName ="myFragment"
-            android:layout_weight="6"
-            android:id="@+id/fragmentIkona"
-            android:name="com.example.bogusz.eartraining.IkonaFragment"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:gravity="center"
-            tools:layout="@layout/fragment_ikona" />
+                android:layout_gravity="center_horizontal|top"
+                android:id="@+id/fragmentIkona"
+                android:name="com.example.bogusz.eartraining.IkonaFragment"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="8"
+                android:transitionName="myFragment"
+                tools:layout="@layout/fragment_ikona" />
 
-
-            <HorizontalScrollView
+    <HorizontalScrollView
+                 android:layout_gravity="center_horizontal|bottom"
                 android:layout_weight="13"
                 android:scrollbars="none"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="0dp">
 
                 <LinearLayout
                     android:id="@+id/kontenerZadania"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:orientation="horizontal">
 
                 </LinearLayout>

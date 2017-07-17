@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.View;
 
 
-
 public class MainActivity extends AppCompatActivity {
 
     //logic value
@@ -24,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        Log.i(tagLog,"onCreate");
+        Log.i(tagLog, "onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -45,46 +44,46 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        Log.i(tagLog,"onStart");
+        Log.i(tagLog, "onStart");
         setUpFragmentow();
         setOnClickFragmentow();
     }
 
-    private void setOnClickFragmentow(){
+    private void setOnClickFragmentow() {
 
-        Log.i(tagLog,"setOnClickFragmentow");
+        Log.i(tagLog, "setOnClickFragmentow");
         // ustala w jaki sposób zachowa się aplikacja po wcisnieciu danego fragmentu
 
-       for(int i =0; i <ikonaFragments.length; i++){
-           View view = ikonaFragments[i].getView();
-           view.setOnClickListener(ustawKlikniecie(i));
-       }
+        for (int i = 0; i < ikonaFragments.length; i++) {
+            View view = ikonaFragments[i].getView();
+            view.setOnClickListener(ustawKlikniecie(i));
+        }
 
-        Log.i(tagLog,"before setup fragments");
+        Log.i(tagLog, "before setup fragments");
 
     }
 
 
-    private void setUpFragmentow(){
+    private void setUpFragmentow() {
 
-        Log.i(tagLog,"setUpFragmentow");
+        Log.i(tagLog, "setUpFragmentow");
 
         // download from res value of string
         podpisyIkon = getResources().getStringArray(R.array.podpisyIkon);
 
 
-        Log.i(tagLog,"before setup podpisyIkon");
+        Log.i(tagLog, "before setup podpisyIkon");
 
         // setUp image of fragments
-        for(int i =0; i<ikonaFragments.length; i++){
+        for (int i = 0; i < ikonaFragments.length; i++) {
 
-            Log.i(tagLog,"pętla for iteracja: " + i);
+            Log.i(tagLog, "pętla for iteracja: " + i);
 
             ikonaFragments[i].zmianaNapisu(podpisyIkon[i]);
 
-            Log.i(tagLog,"after zmianNapisu");
+            Log.i(tagLog, "after zmianNapisu");
 
-            switch (i){
+            switch (i) {
                 case 0:
                     ikonaFragments[i].zmianaObrazu(R.drawable.interwaly);
                     break;
@@ -111,24 +110,23 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        Log.i(tagLog,"before setup ikony fragments");
+        Log.i(tagLog, "before setup ikony fragments");
 
     }
 
-    private View.OnClickListener  ustawKlikniecie(final int numerPrzycisku){
-        View.OnClickListener  view= (new View.OnClickListener() {
+    private View.OnClickListener ustawKlikniecie(final int numerPrzycisku) {
+        View.OnClickListener view = (new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ChooseScreen.class);
                 ActivityOptionsCompat activityOptionsCompat =
-                        ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this,ikonaFragments[numerPrzycisku].getView(),"myFragment");
+                        ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this, ikonaFragments[numerPrzycisku].getView(), "myFragment");
                 startActivity(intent, activityOptionsCompat.toBundle());
                 setKlikniete(numerPrzycisku);
             }
         });
         return view;
     }
-
 
 
     public static int getKlikniete() {

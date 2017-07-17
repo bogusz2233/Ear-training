@@ -1,32 +1,47 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.bogusz.eartraining.IkonaFragment"
     android:background="@color/colorPrimary"
-    android:padding="5sp"
+    android:padding="5dp"
+    android:gravity="bottom"
     >
 
 
-        <TextView
-            android:id="@+id/tekstIkona"
+
+        <TableLayout
+            android:gravity="center"
+            android:id="@+id/tableLayout1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:text="Interwały Interwały"
-            android:textColor="#fff"
-            android:textSize="13sp"
-            android:textAlignment="center"
-            />
+            android:layout_height="match_parent"
+            >
+                <TableRow  android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="40"
+                    android:gravity="center">
+                         <ImageView
+                                android:id="@+id/imageIkona"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@mipmap/ic_launcher_round"/>
+                </TableRow>
 
-        <ImageView
-            android:id="@+id/imageIkona"
-            android:layout_above="@id/tekstIkona"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher_round"/>
+                <TableRow       android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:gravity="center">
+                        <TextView
+                                android:id="@+id/tekstIkona"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:text="Interwały Interwały"
+                                android:textColor="#fff"
+                                android:textSize="13sp"
+                                android:textAlignment="center" />
+                 </TableRow>
+        </TableLayout>
 
 
-
-</RelativeLayout>
+</LinearLayout>
