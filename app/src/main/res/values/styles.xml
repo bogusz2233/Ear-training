@@ -1,6 +1,16 @@
 <resources>
 
     <!-- Base application theme. -->
+<<<<<<< HEAD
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColorPrimary">@color/textColor</item>
+        <item name="android:colorForeground">@color/colorPrimaryDark</item>
+=======
 
 
 
@@ -8,6 +18,7 @@
     <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:statusBarColor">@color/colorPrimaryDark</item>
 
+>>>>>>> bd1924a8b3c7fd341e514602fb7d22e54048ad12
     </style>
 
 </resources>

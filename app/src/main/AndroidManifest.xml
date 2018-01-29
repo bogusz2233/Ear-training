@@ -8,22 +8,32 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+<<<<<<< HEAD
+        android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".MainActivity">
+=======
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
+>>>>>>> bd1924a8b3c7fd341e514602fb7d22e54048ad12
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
+        <activity android:name=".interwaly.Interwaly" />
+        <activity android:name=".interwaly.Exercises"></activity>
+=======
         <activity
             android:name=".ChooseScreen"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_choose_screen"
             android:screenOrientation="portrait" />
         <activity android:name=".InterwalyCwiczenie"  android:screenOrientation="portrait"></activity>
+>>>>>>> bd1924a8b3c7fd341e514602fb7d22e54048ad12
     </application>
 
 </manifest>

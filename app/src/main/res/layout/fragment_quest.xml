@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff">
+
+    <TextView
+        android:id="@+id/quest_title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+
+        android:gravity="center"
+        android:textColor="@color/textColor"
+        android:text="@string/title_activity_choose_screen"
+        android:textStyle="bold"
+        android:textSize="22sp"/>
+
+    <TextView
+        android:id="@+id/quest_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+
+        android:gravity="center_vertical"
+        android:padding="15dp"
+        android:textColor="@color/textColor"
+        android:text="@string/tekstTrescZadania"
+        android:textSize="18dp"/>
+
+    <Button
+        android:id="@+id/quest_button"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="20dp"
+        android:textSize="22dp"
+        android:text="Start"
+        android:textStyle="bold"/>
+
+</LinearLayout>
+</LinearLayout>

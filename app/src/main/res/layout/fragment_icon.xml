@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp"
+    tools:context="com.example.bogusz.eartraining.fragments.Icon">
+
+=   <ImageView
+    android:id="@+id/imageIcon"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1.8"
+    android:src="@drawable/akordy"/>
+
+    <TextView
+        android:id="@+id/textIcon"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+
+        android:text="Interwały Interwały"
+        android:textColor="#ffffff"
+        android:textSize="12sp"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textStyle="bold"/>
+
+</LinearLayout>

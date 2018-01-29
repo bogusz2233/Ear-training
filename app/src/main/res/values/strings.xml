@@ -11,7 +11,11 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
 
+<<<<<<< HEAD
+    <string-array name="iconName">
+=======
     <string-array name="podpisyIkon">
+>>>>>>> bd1924a8b3c7fd341e514602fb7d22e54048ad12
         <item>Interwały</item>
         <item>Trójdźwięki</item>
         <item>Akordy</item>
@@ -22,4 +26,8 @@
 
     <string name="title_activity_choose_screen">ChooseScreen</string>
 
+<<<<<<< HEAD
 </resources>
+=======
+</resources>
+>>>>>>> bd1924a8b3c7fd341e514602fb7d22e54048ad12
